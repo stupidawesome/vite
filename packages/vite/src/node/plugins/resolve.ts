@@ -70,6 +70,9 @@ export function resolvePlugin(baseOptions: InternalResolveOptions): Plugin {
   }
   let server: ViteDevServer | undefined
 
+  // Prevent the cache leaking to other build contexts
+  packageCache.clear()
+
   return {
     name: 'vite:resolve',
 
